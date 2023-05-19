@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/perfil.css" media="screen">
+</head>
+
+<body class="u-body u-xl-mode">
+    <section class="u-clearfix u-white u-section-1" id="sec-4a77">
+        <div class="header-profile">
+            <div class="card">
+                <span class="u-icon u-text-black u-white u-icon-1" data-href="w" data-page-id="278372782">
+                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55 55" style="">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-32c2"></use>
+                    </svg>
+                </span>
+                <h1>@HttpContextAccessor.HttpContext.Session.GetString("Username")</h1>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Estudiante")
+                {
+                    <p class="title">@HttpContextAccessor.HttpContext.Session.GetString("Seccion")</p>
+                }
+                <p class="title">@HttpContextAccessor.HttpContext.Session.GetString("Cedula")</p>
+                <p>@HttpContextAccessor.HttpContext.Session.GetString("Rango")</p>
+            </div>
+        </div>
+
+        <div class="footer-profile">
+            <div class="card2">
+                <a class="boton" asp-area="" asp-controller="Horarios" asp-action="Horarios">Horarios</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Administrativo" || HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Creador")
+                {
+                    <a class="boton" asp-area="" asp-controller="Database" asp-action="Index">Base de datos</a>
+                }
+                <!--<a class="boton" asp-area="" asp-controller="Login" asp-action="Preguntas">Preguntas de seguridad</a>-->
+                <a class="boton" asp-area="" asp-controller="Login" asp-action="Eliminar" asp-route-Cedula="@HttpContextAccessor.HttpContext.Session.GetString("Cedula")">Eliminar</a>
+                <a class="boton" asp-area="" asp-controller="Login" asp-action="Modificar" asp-route-Cedula="@HttpContextAccessor.HttpContext.Session.GetString("Cedula")">Modificar</a>
+                <a class="boton" asp-area="" asp-controller="Login" asp-action="Cerrar">Cerrar Sesión</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

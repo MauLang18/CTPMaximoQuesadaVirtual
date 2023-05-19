@@ -1,0 +1,1321 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model List<HorarioDiario>
+
+@{
+    ViewData["Title"] = "Horarios";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="~/css/Index.css" media="screen">
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/horarios.css" media="screen">
+    <style>
+        .principal {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #secundario1 {
+            width: auto;
+            height: auto;
+            margin: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        @if ((HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Administrativo") || (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Creador"))
+        {
+            <section class="py-5 text-center container">
+                <div class="album py-5 bg-light">
+                    <a type="button" class="btn btn-md btn-outline-primary" asp-action="AgregarHD" asp-controller="Horarios">Agregar Horario Diario</a>
+                    <a type="button" class="btn btn-md btn-outline-primary" asp-action="AgregarHS" asp-controller="Horarios">Agregar Horario Sección</a>
+                </div>
+            </section>
+        }
+        <section class="py-5 text-center container">
+            <div class="album py-5 bg-light">
+                <h2 class="titulo">Horario de sección</h2>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Estudiante")
+                {
+                    <div class="tabs__head-estudiantes">
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-1")
+                        {
+                            <spam class="tabs__toggle is-active">7-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-2")
+                        {
+                            <spam class="tabs__toggle is-active">7-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-3")
+                        {
+                            <spam class="tabs__toggle is-active">7-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-4")
+                        {
+                            <spam class="tabs__toggle is-active">7-4</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-5")
+                        {
+                            <spam class="tabs__toggle is-active">7-5</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-6")
+                        {
+                            <spam class="tabs__toggle is-active">7-6</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-1")
+                        {
+                            <spam class="tabs__toggle is-active">8-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-2")
+                        {
+                            <spam class="tabs__toggle is-active">8-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-3")
+                        {
+                            <spam class="tabs__toggle is-active">8-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-4")
+                        {
+                            <spam class="tabs__toggle is-active">8-4</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-5")
+                        {
+                            <spam class="tabs__toggle is-active">8-5</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-6")
+                        {
+                            <spam class="tabs__toggle is-active">8-6</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-1")
+                        {
+                            <spam class="tabs__toggle is-active">9-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-2")
+                        {
+                            <spam class="tabs__toggle is-active">9-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-3")
+                        {
+                            <spam class="tabs__toggle is-active">9-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-4")
+                        {
+                            <spam class="tabs__toggle is-active">9-4</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-5")
+                        {
+                            <spam class="tabs__toggle is-active">9-5</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-6")
+                        {
+                            <spam class="tabs__toggle is-active">9-6</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-1")
+                        {
+                            <spam class="tabs__toggle is-active">10-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-2")
+                        {
+                            <spam class="tabs__toggle is-active">10-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-3")
+                        {
+                            <spam class="tabs__toggle is-active">10-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-4")
+                        {
+                            <spam class="tabs__toggle is-active">10-4</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-1")
+                        {
+                            <spam class="tabs__toggle is-active">11-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-2")
+                        {
+                            <spam class="tabs__toggle is-active">11-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-3")
+                        {
+                            <spam class="tabs__toggle is-active">11-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-4")
+                        {
+                            <spam class="tabs__toggle is-active">11-4</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-1")
+                        {
+                            <spam class="tabs__toggle is-active">12-1</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-2")
+                        {
+                            <spam class="tabs__toggle is-active">12-2</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-3")
+                        {
+                            <spam class="tabs__toggle is-active">12-3</spam>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-4")
+                        {
+                            <spam class="tabs__toggle is-active">12-4</spam>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="tabs__head">
+                        <span class="tabs__toggle is-active">7-1</span>
+                        <span class="tabs__toggle">7-2</span>
+                        <span class="tabs__toggle">7-3</span>
+                        <span class="tabs__toggle">7-4</span>
+                        <span class="tabs__toggle">7-5</span>
+                        <span class="tabs__toggle">7-6</span>
+                        <span class="tabs__toggle">8-1</span>
+                        <span class="tabs__toggle">8-2</span>
+                        <span class="tabs__toggle">8-3</span>
+                        <span class="tabs__toggle">8-4</span>
+                        <span class="tabs__toggle">8-5</span>
+                        <span class="tabs__toggle">8-6</span>
+                        <span class="tabs__toggle">9-1</span>
+                        <span class="tabs__toggle">9-2</span>
+                        <span class="tabs__toggle">9-3</span>
+                        <span class="tabs__toggle">9-4</span>
+                        <span class="tabs__toggle">9-5</span>
+                        <span class="tabs__toggle">9-6</span>
+                        <span class="tabs__toggle">10-1</span>
+                        <span class="tabs__toggle">10-2</span>
+                        <span class="tabs__toggle">10-3</span>
+                        <span class="tabs__toggle">10-4</span>
+                        <span class="tabs__toggle">11-1</span>
+                        <span class="tabs__toggle">11-2</span>
+                        <span class="tabs__toggle">11-3</span>
+                        <span class="tabs__toggle">11-4</span>
+                        <span class="tabs__toggle">12-1</span>
+                        <span class="tabs__toggle">12-2</span>
+                        <span class="tabs__toggle">12-3</span>
+                        <span class="tabs__toggle">12-4</span>
+                    </div>
+                }
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Estudiante")
+                {
+                    <div class="tabs__body">
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">7-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-1A")) || (item.Seccion.Equals("7-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">7-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-2A")) || (item.Seccion.Equals("7-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-3")
+                        {
+                            <div class="tabs__contentis-active">
+                                <h2 class="tabs__title">7-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-3A")) || (item.Seccion.Equals("7-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">7-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-4A")) || (item.Seccion.Equals("7-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-5")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">7-5</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-5A")) || (item.Seccion.Equals("7-5B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "7-6")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">7-6</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("7-6A")) || (item.Seccion.Equals("7-6B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-1A")) || (item.Seccion.Equals("8-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-2A")) || (item.Seccion.Equals("8-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-3")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-3A")) || (item.Seccion.Equals("8-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-4A")) || (item.Seccion.Equals("8-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-5")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-5</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-5A")) || (item.Seccion.Equals("8-5B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "8-6")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">8-6</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("8-6A")) || (item.Seccion.Equals("8-6B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-1A")) || (item.Seccion.Equals("9-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-2A")) || (item.Seccion.Equals("9-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-3")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-3A")) || (item.Seccion.Equals("9-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-4A")) || (item.Seccion.Equals("9-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-5")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-5</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-5A")) || (item.Seccion.Equals("9-5B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "9-6")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">9-6</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("9-6A")) || (item.Seccion.Equals("9-6B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">10-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("10-1A")) || (item.Seccion.Equals("10-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">10-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("10-2A")) || (item.Seccion.Equals("10-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-3")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">10-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("10-3A")) || (item.Seccion.Equals("10-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "10-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">10-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("10-4A")) || (item.Seccion.Equals("10-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">11-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("11-1A")) || (item.Seccion.Equals("11-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">11-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("11-2A")) || (item.Seccion.Equals("11-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-3")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">11-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("11-3A")) || (item.Seccion.Equals("11-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "11-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">11-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("11-4A")) || (item.Seccion.Equals("11-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-1")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">12-1</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("12-1A")) || (item.Seccion.Equals("12-1B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-2")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">12-2</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("12-2A")) || (item.Seccion.Equals("12-2B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-3")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">12-3</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("12-3A")) || (item.Seccion.Equals("12-3B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetString("Seccion") == "12-4")
+                        {
+                            <div class="tabs__content is-active">
+                                <h2 class="tabs__title">12-4</h2>
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        @if ((item.Seccion.Equals("12-4A")) || (item.Seccion.Equals("12-4B")))
+                                        {
+                                            <div class="col-xl">
+                                                <div class="card xl shadow-sm">
+                                                    <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="tabs__body">
+                        <div class="tabs__content is-active">
+                            <h2 class="tabs__title">7-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-1A")) || (item.Seccion.Equals("7-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">7-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-2A")) || (item.Seccion.Equals("7-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">7-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-3A")) || (item.Seccion.Equals("7-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">7-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-4A")) || (item.Seccion.Equals("7-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">7-5</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-5A")) || (item.Seccion.Equals("7-5B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">7-6</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("7-6A")) || (item.Seccion.Equals("7-6B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-1A")) || (item.Seccion.Equals("8-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-2A")) || (item.Seccion.Equals("8-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-3A")) || (item.Seccion.Equals("8-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-4A")) || (item.Seccion.Equals("8-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-5</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-5A")) || (item.Seccion.Equals("8-5B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">8-6</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("8-6A")) || (item.Seccion.Equals("8-6B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-1A")) || (item.Seccion.Equals("9-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-2A")) || (item.Seccion.Equals("9-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-3A")) || (item.Seccion.Equals("9-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-4A")) || (item.Seccion.Equals("9-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-5</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-5A")) || (item.Seccion.Equals("9-5B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">9-6</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("9-6A")) || (item.Seccion.Equals("9-6B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">10-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("10-1A")) || (item.Seccion.Equals("10-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">10-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("10-2A")) || (item.Seccion.Equals("10-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">10-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("10-3A")) || (item.Seccion.Equals("10-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">10-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("10-4A")) || (item.Seccion.Equals("10-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">11-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("11-1A")) || (item.Seccion.Equals("11-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">11-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("11-2A")) || (item.Seccion.Equals("11-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">11-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("11-3A")) || (item.Seccion.Equals("11-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">11-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("11-4A")) || (item.Seccion.Equals("11-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">12-1</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("12-1A")) || (item.Seccion.Equals("12-1B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">12-2</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("12-2A")) || (item.Seccion.Equals("12-2B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">12-3</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("12-3A")) || (item.Seccion.Equals("12-3B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <h2 class="tabs__title">12-4</h2>
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    @if ((item.Seccion.Equals("12-4A")) || (item.Seccion.Equals("12-4B")))
+                                    {
+                                        <div class="col-xl">
+                                            <div class="card xl shadow-sm">
+                                                <img class="card-img-top" src="@item.ImagenS" alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+        <section id="altura" class="py-5 text-center container">
+            <div id="scroll" class="album py-5 bg-light">
+                <h2 class="titulo">Horario Diario</h2>
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item2 in Model)
+                        {
+                            @if (item2.IDS == 0)
+                            {
+                                var d = DateTime.Parse(@item2.Fecha);
+                                var dia = d.ToString("dd-MM-yyyy");
+                                <div class="col-md-4">
+                                    <div class="card mb-4 shadow-sm">
+                                        <img class="card-img-top" src="@item2.Imagen" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text">@item2.Grado</p>
+                                            <p class="card-text">@dia</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    @if ((HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Administrativo") || (HttpContextAccessor.HttpContext.Session.GetString("Rango") == "Creador"))
+                                                    {
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Detalle" asp-controller="Horarios" asp-route-ID="@item2.ID">Ver</a>
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="ModificarHD" asp-controller="Horarios" asp-route-ID="@item2.ID">Editar</a>
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="EliminarHD" asp-controller="Horarios" asp-route-ID="@item2.ID">Eliminar</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Detalle" asp-controller="Horarios" asp-route-ID="@item2.ID">Ver</a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="~/js/horarios.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

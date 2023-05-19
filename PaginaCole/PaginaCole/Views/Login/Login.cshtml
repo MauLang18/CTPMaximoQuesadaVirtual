@@ -1,0 +1,62 @@
+﻿@model Login
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen" />
+    <link rel="stylesheet" href="~/css/style.css" media="screen" />
+</head>
+
+<body class="u-body u-xl-mode">
+    <section>
+        <div class="bg-img" style="background: url('../img2/login.jpeg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;">
+            @*<img src="#"/>*@
+            <div class="content">
+                <header>Iniciar Sesión</header>
+                <form method="post" asp-action="Login" asp-controller="Login">
+                    <div class="field">
+                        <span class="fa fa-user"></span>
+                        <input asp-for="User" type="text" required placeholder="Usuario" />
+                        <span asp-validation-for="User" class="text-danger"></span>
+                    </div>
+                    <div class="field space">
+                        <span class="fa fa-lock"></span>
+                        <input asp-for="Pass" type="password" class="pass-key" required placeholder="Contraseña" />
+                        <span class="show">SHOW</span>
+                        <span asp-validation-for="Pass" class="text-danger"></span>
+                    </div>
+                    <div class="field space">
+                        <span class="fa fa-user"></span>
+                        <input asp-for="Cedula" type="text" required placeholder="Cedula" />
+                        <span asp-validation-for="Cedula" class="text-danger"></span>
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="LOGIN" />
+                    </div>
+                    <div class="pass">
+                        <a asp-area="" asp-controller="Login" asp-action="Register">¿No tienes una cuenta? Registrate</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="~/js/horarios.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

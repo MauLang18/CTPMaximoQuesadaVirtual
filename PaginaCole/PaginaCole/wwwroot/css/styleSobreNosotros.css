@@ -1,0 +1,149 @@
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url('../images/img.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.idc-box {
+    background: rgba(0,0,0,0.4) none repeat scroll 0 0;
+    border: 1px solid #ffffff;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    margin-left: 10px;
+    padding: 20px;
+    width: auto;
+    position: fixed;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    .idc-box {
+        padding-left: 10px;
+        padding-right: 40%;
+        margin-left: 5%;
+        position: static;
+    }
+}
+
+.idc-box .idc-titulo {
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+}
+
+.idc-box li, .idc-box ul, .idc-box ul li {
+    padding: 0 5px;
+    list-style: outside none none !important;
+}
+
+    .idc-box li, .idc-box ul, .idc-box ul li a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+/* base */
+.info {
+    padding: 30px 25px 25px 25px;
+    background-color: rgba(0,0,0,0.4);
+    color: #ffffff;
+    margin: 2% 20% 0px 20%;
+}
+
+.himno {
+    margin: 2% 35% 10px 35%;
+    padding: 10px 10px 10px 10px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.banner {
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    padding: 10px 10% 10px 10%; /* Arriba, derecha, abajo, izquierda */
+    background-color: #56070C;
+    color: #EEE8AA;
+}
+/*Responsive Himn*/
+@media handheld, only screen and (max-width: 767px) {
+    .info {
+        padding: 10px 15px 10px 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    .himno {
+        padding: 10px 10px 10px 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    .banner {
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center;
+        padding: 10px 5% 10px 5%; /* Arriba, derecha, abajo, izquierda */
+    }
+}
+
+.banner #banner1 h1 {
+    font-family: 'Noto Serif', serif;
+}
+/*Responsive Ps and Banner*/
+@media handheld, only screen and (max-width: 767px) {
+    .infoaocultar {
+        display: none;
+    }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    .brocul {
+        display: none;
+    }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    .banner {
+        padding-left: 50px;
+    }
+}
+
+/* -------------FOOTER------------------ */
+.P_foot {
+    padding-left: 70px;
+}
+
+#iconfi {
+    padding-right: 70px;
+}
+
+.ctpcopy {
+    color: #EEE8AA;
+}
+/*Responsive Footer*/
+@media handheld, only screen and (max-width: 767px) {
+    .P_foot {
+        padding-left: 27px;
+    }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+    #iconfi {
+        padding-left: 70px;
+    }
+}

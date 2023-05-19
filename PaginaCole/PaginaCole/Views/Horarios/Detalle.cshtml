@@ -1,0 +1,33 @@
+﻿@model HorarioDiario
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<div class="main-container">
+    <section class="bg-white space-sm">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <img alt="Image" src="@Model.Imagen" style="height: auto; width: auto;" />
+                </div>
+                <!--end of col-->
+                <div class="col-lg-4 d-flex flex-column justify-content-between mr-auto ml-auto">
+                    <div>
+                        @for (int i = 0; i < 1; i++)
+                        {
+                            var d = DateTime.Parse(@Model.Fecha);
+                            var dia = d.ToString("dd-MM-yyyy");
+                            <h1 class="mb-2">@dia</h1>
+                            <h2 class="lead mb-3">@Model.Grado</h2>
+                        }
+                    </div>
+                </div>
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+    <!--end of section-->
+</div>

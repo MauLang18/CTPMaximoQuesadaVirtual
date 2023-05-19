@@ -1,0 +1,107 @@
+﻿@model Registros
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Register</title>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/style.css" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+
+<body class="u-body u-xl-mode">
+    <section class="u-clearfix u-white u-section-1" id="sec-4a77">
+        <div class="bg-img" style="background: url('../img2/login.jpeg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;">
+            @if (ViewData["Mensaje"] == null)
+            {
+                <div class="content">
+                    <header>Registrar</header>
+                    <form method="post" asp-action="Register" asp-controller="Login">
+                        <div class="field">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="User" type="text" required placeholder="Usuario" />
+                            <span asp-validation-for="User" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-lock"></span>
+                            <input asp-for="Pass" type="password" class="pass-key" required placeholder="Contraseña" />
+                            <span class="show">SHOW</span>
+                            <span asp-validation-for="Pass" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="Cedula" type="text" required placeholder="Cedula" />
+                            <span asp-validation-for="Cedula" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-user"></span>
+                            <select asp-for="Rango" class="form-control" asp-items="@(new SelectList(ViewBag.Rango))">
+                            </select>
+                        </div>
+                        <div class="field">
+                            <input type="submit" value="REGISTRAR" />
+                        </div>
+                        <div class="pass">
+                            <a asp-area="" asp-controller="Login" asp-action="Register">¿Ya tienes una cuenta? Iniciar Sesion</a>
+                        </div>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <div class="content">
+                    <header>Registrar</header>
+                    <span class="text-danger">@ViewData["Mensaje"]</span>
+                    <form method="post" asp-action="Register" asp-controller="Login">
+                        <div class="field">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="User" type="text" required placeholder="Usuario" />
+                            <span asp-validation-for="User" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-lock"></span>
+                            <input asp-for="Pass" type="password" class="pass-key" required placeholder="Contraseña" />
+                            <span class="show">SHOW</span>
+                            <span asp-validation-for="Pass" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="Cedula" type="text" required placeholder="Cedula" />
+                            <span asp-validation-for="Cedula" class="text-danger"></span>
+                        </div>
+                        <div class="field space">
+                            <span class="fa fa-user"></span>
+                            <select asp-for="Rango" class="form-control" asp-items="@(new SelectList(ViewBag.Rango))">
+                            </select>
+                        </div>
+                        <div class="field">
+                            <input type="submit" value="REGISTRAR" />
+                        </div>
+                        <div class="pass">
+                            <a asp-area="" asp-controller="Login" asp-action="Login">¿Ya tienes una cuenta? Iniciar Sesion</a>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </section>
+    <script src="~/js/horarios.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

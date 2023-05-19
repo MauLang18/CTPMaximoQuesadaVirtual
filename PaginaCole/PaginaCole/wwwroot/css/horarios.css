@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titulo {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+}
+
+.seccion {
+    margin: auto;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 10 px rgba(0, 0, 0, 0.05);
+}
+
+.tabs__head {
+    display: flex;
+    align-items: stretch;
+}
+
+.tabs__head-estudiantes {
+    display: flex;
+    align-items: stretch;
+    margin-left: 443.5px;
+    text-align: center;
+}
+
+.tabs__toggle {
+    display: flex;
+    width: 33.3334%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    cursor: pointer;
+}
+
+    .tabs__toggle.is-active {
+        background-color: #fdfdfd;
+    }
+
+.tabs__content {
+    padding: 30px;
+    display: none;
+    margin: auto;
+}
+
+    .tabs__content.is-active {
+        display: block;
+    }
+
+.tabs__title {
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.tabs__text {
+    font-size: 14px;
+    color: #000;
+}
+
+.tabs__img {
+    max-width: 850px;
+}
+
+.tabs-img {
+    text-align: center;
+}
+
+.dia {
+    margin: auto;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 10 px rgba(0, 0, 0, 0.05);
+}
+
+.img1 {
+    max-width: 850px;
+}
+
+.img2 {
+    max-width: 850px;
+}
+
+.actual-img {
+    text-align: left;
+}
+
+.dia-img {
+    text-align: right;
+}
+
+.parent-actual {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 1/1/2/2;
+}
+
+.div2 {
+    grid-area: 1/2/2/3;
+    text-align: center;
+}
+
+.parent-dia {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+}
+
+.div3 {
+    grid-area: 1/2/2/3;
+}
+
+.div4 {
+    grid-area: 1/1/2/2;
+    text-align: center;
+}
+
+.text-fecha {
+    margin-top: 250px;
+}
+
+.input-fecha {
+    margin-top: 250px;
+}
+
+.profesores {
+    margin: auto;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 10 px rgba(0, 0, 0, 0.05);
+}
+
+.incapacitados {
+    margin: auto;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 10 px rgba(0, 0, 0, 0.05);
+}

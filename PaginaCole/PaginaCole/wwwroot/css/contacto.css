@@ -1,0 +1,25 @@
+
+#titulo{
+    font-family: 'Noto Serif', serif;
+    color: #56070C;
+    
+}
+#textoC{
+    color: #808080;
+    font-family: 'Quicksand', sans-serif;
+}
+ 
+#textoL{
+    font-family: 'Quicksand', sans-serif;
+    color: #808080;
+}
+@media screen and (max-width: 600px) {
+    #esconderCel {
+      visibility: hidden;
+      clear: both;
+      float: left;
+      margin: 10px auto 5px 20px;
+      width: 28%;
+      display: none;
+    }
+  }

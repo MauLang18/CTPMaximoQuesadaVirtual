@@ -1,0 +1,61 @@
+﻿@using PaginaCole.ViewModels
+@model EditHorarioViewModel
+
+@{
+    ViewData["Title"] = "ModificarHD";
+}
+
+<div class="main-container">
+    <section class="bg-white space-sm">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <img alt="Image" src="@Model.URL"/>
+                </div>
+                <!--end of col-->
+                <div class="col-lg-4 d-flex flex-column justify-content-between mr-auto ml-auto">
+                    <div>
+                        @for (int i = 0; i < 1; i++)
+                        {
+                            var d = DateTime.Parse(@Model.Fecha);
+                            var dia = d.ToString("dd-MM-yyyy");
+                            <h1 class="mb-2">@dia</h1>
+                            <h2 class="lead mb-3">@Model.Grado</h2>
+                        }
+                    </div>
+                    <form method="post" asp-action="ModificarHD" asp-controller="Horarios" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="ID" value="@Model.ID" />
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <input type="date" asp-for="Fecha" class="form-control form-control-lg" placeholder="2022-01-01" />
+                                <span asp-validation-for="Fecha" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <select asp-for="Grado" class="form-control form-control-lg" asp-items="@(new SelectList(ViewBag.Grado))">
+                                </select>
+                                <span asp-validation-for="Grado" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <input asp-for="Imagen" type="file" class="form-control form-control-lg" placeholder="Image" />
+                                <span asp-validation-for="Imagen" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <button class="btn btn-block btn-success btn-lg" type="submit">Modificar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+    <!--end of section-->
+</div>

@@ -1,0 +1,39 @@
+.titulo{
+    font-family: 'Noto Serif', serif;
+    /*color: #56070C;*/
+    color: #fff;
+    text-align: center;
+   
+}
+.card-title{
+    font-family: 'Noto Serif', serif;
+    color: #56070C;
+}
+.card-text{
+    color: #808080;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+/* -------------FOOTER------------------ */
+.P_foot{
+    padding-left: 70px;
+}
+#iconfi{
+    padding-right: 70px;
+}
+.ctpcopy{
+    color: #EEE8AA;
+}
+/*Responsive Footer*/
+@media handheld, only screen and (max-width: 767px) {
+    .P_foot {
+    padding-left: 27px;
+    }
+    }
+@media handheld, only screen and (max-width: 767px) {
+    #iconfi {
+    padding-left: 70px;
+    }
+    }
+
+

@@ -1,0 +1,44 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.card2 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+span {
+    width: 250px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+.boton {
+    border-radius: 5px;
+    max-width: 550px;
+    margin-bottom: 1.5px;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+    .boton:hover {
+        opacity: 0.7;
+        color: white;
+    }

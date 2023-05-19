@@ -1,0 +1,41 @@
+﻿@model Administrativos
+
+@{
+    ViewData["Title"] = "EliminarA";
+}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Eliminar Administrativo</title>
+    <link rel="stylesheet" href="~/css/database.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+<body class="u-body u-xl-mode">
+    <section class="u-clearfix u-white u-section-1" id="sec-4a77">
+        <div class="card">
+            <div class="tit">
+                Eliminar Administrativo
+            </div>
+            <form method="post" asp-action="EliminarA" asp-controller="Database">
+                <div class="alert alert-danger" role="alert">
+                    ¿Deseas eliminar al administrativo con la cedula: @Html.DisplayTextFor(m => m.Cedula)?
+                </div>
+                <br>
+                <div class="btns">
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                    <a asp-action="ListaA" asp-controller="Database" class="btn btn-warning">Regresar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

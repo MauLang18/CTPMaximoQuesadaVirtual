@@ -1,0 +1,57 @@
+﻿@model Registros
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/login.css" media="screen">
+</head>
+
+<body class="u-body u-xl-mode">
+    <section class="u-clearfix u-white u-section-1" id="sec-4a77">
+        <div class="login">
+            <div class="login-screen">
+                <span class="u-icon u-text-black u-white u-icon-1" data-href="w" data-page-id="278372782">
+                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55 55" style="">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-32c2"></use>
+                    </svg>
+                </span>
+
+                <div class="app-title">
+                    <h1>Eliminar</h1>
+                </div>
+
+                <div class="login-form">
+                    <form method="post" asp-action="Eliminar" asp-controller="Login">
+                        <input asp-for="Cedula" type="hidden" class="login-field" id="login-cedula">
+                        <label class="login-field-icon fui-lock" for="login-cedula"></label>
+
+                        <div class="alert alert-danger" role="alert">
+                            ¿Deseas eliminar la cuenta: @HttpContextAccessor.HttpContext.Session.GetString("Username") ?
+                        </div>
+
+                        <input type="submit" value="Eliminar" class="btn btn-primary" />
+                        <a class="login-link" asp-area="" asp-controller="Login" asp-action="Profile">Regresar</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

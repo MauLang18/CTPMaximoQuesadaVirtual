@@ -1,0 +1,41 @@
+/* -------------FOOTER------------------ */
+.P_foot{
+    padding-left: 70px;
+}
+#iconfi{
+    padding-right: 70px;
+}
+.ctpcopy{
+    color: #EEE8AA;
+}
+/*Responsive Footer*/
+@media handheld, only screen and (max-width: 767px) {
+    .P_foot {
+    padding-left: 27px;
+    }
+    }
+@media handheld, only screen and (max-width: 767px) {
+    #iconfi {
+    padding-left: 70px;
+    }
+    }
+.titulo{
+    font-family: 'Noto Serif', serif;
+    color: #fff;
+    text-align: center;
+       
+    }
+
+.texto{
+    color: #9b9b9b;
+    font-family: 'Quicksand', sans-serif;  
+}
+#titulo{
+    font-family: 'Noto Serif', serif;
+    color: #fff; 
+}
+.textoE{
+    color: #fff;
+    font-family: 'Quicksand', sans-serif; 
+    font-size: smaller;
+}

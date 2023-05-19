@@ -1,0 +1,139 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CTP Maximo Quesada">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>CTP Maximo Quesada</title>
+    <link rel="icon" href="/favicon4.ico?v=2" type="image/x-icon" />
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <style>
+        .principal {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .secundario {
+            width: auto;
+            height: auto;
+            margin: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-white u-group-1">
+            <div class="principal">
+                <div class="secundario">
+                    <img class="u-image u-image-default u-image-1" src="~/images/CMQT_Escudo_2012-removebg-preview.png" alt="" style="width: 65px; height: 65px;">
+                </div>
+                <div class="secundario">
+                    <h1 class="u-custom-font u-font-georgia u-text u-text-default u-text-1">CTP Máximo Quesada</h1>
+                </div>
+            </div>
+        </div>
+        <div class="pos-f-t">
+            <div class="bg-dark p-4">
+                <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" id="navbar">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">Inicio</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Nosotros" asp-controller="Nosotros">Sobre Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="PlanNacional" asp-controller="PlanNacional">Plan Nacional</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Materias
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-action="Especialidades" asp-controller="Especialidades">Especialidades</a>
+                                    <a class="dropdown-item" asp-action="Academicas" asp-controller="Academicas">Academicas</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Matriculas" asp-controller="Matriculas">Matriculas</a>
+                            </li>
+                            <li class="nav-item">
+                                @if ((HttpContextAccessor.HttpContext.Session.GetString("Cedula") == "0") || (HttpContextAccessor.HttpContext.Session.GetString("Cedula") == null))
+                                {
+                                    <a class="nav-link" asp-action="Login" asp-controller="Login">Horario</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" asp-action="Horarios" asp-controller="Horarios">Horario</a>
+                                }
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Contacto" asp-controller="Contacto">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                @if ((HttpContextAccessor.HttpContext.Session.GetString("Cedula") == "0") || (HttpContextAccessor.HttpContext.Session.GetString("Cedula") == null))
+                                {
+                                    <a class="nav-link" asp-action="Login" asp-controller="Login">Login</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" asp-action="Profile" asp-controller="Login">Perfil</a>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <br>
+        <br>
+    </header>
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4" id="prueba">
+
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p class="P_foot">
+                    Copyright ©2022 ALL rights reserved by:<strong class="ctpcopy"> CTP Máximo Quesada</strong>
+                </p>
+            </div>
+
+
+            <div class="col-md-5 col-lg-4" id="iconfi">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/groups/889449588270784/?ref=share" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/ctpmaximoquesada.informa/" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/prueba.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

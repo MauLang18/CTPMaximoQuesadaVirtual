@@ -1,0 +1,55 @@
+﻿@using PaginaCole.ViewModels
+@model CreateHorarioViewModel
+
+@{
+    ViewData["Title"] = "AgregarHS";
+}
+
+<div class="navbar-container">
+</div>
+<div class="main-container">
+    <section class="space-sm">
+        <div class="container">
+            <div class="row mb-5">
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+            <div class="row flex-md-row card card-md">
+                <div class="card-body bg-secondary">
+                    <div class="text-center mb-5">
+                        <h1 class="h2 mb-2">Agregar horario</h1>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-lg-5">
+                            <form method="post" asp-action="AgregarHS" asp-controller="Horarios" enctype="multipart/form-data">
+                                <input type="hidden" id="AppUserId" name="AppUserId" />
+                                <div class="form-row form-group">
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <select asp-for="Seccion" class="form-control form-control-lg" asp-items="@(new SelectList(ViewBag.Seccion))">
+                                        </select>
+                                        <span asp-validation-for="Seccion" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="ImagenS" type="file" class="form-control form-control-lg" placeholder="Image" />
+                                        <span asp-validation-for="ImagenS" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <button class="btn btn-block btn-success btn-lg" type="submit">Agregar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of container-->
+    </section>
+    <!--end of section-->
+</div>
